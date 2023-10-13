@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    }
+    .main{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to right, black, #032642);
+    }
+    nav{
+        width: 95%;
+        position: sticky;
+        margin: 10px auto;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+    }
+    .logo{
+        flex-basis: 20%;
+    }
+    .logo img{
+        width: 130px;
+    }
+    .nav-links{
+        flex: 1;
+        text-align: right;
+    }
+    .nav-links ul li{
+        list-style: none;
+        display: inline-block;
+        margin: 0 20px;
+    }
+    .nav-links ul li a{
+        color: #fff;
+        text-decoration: none;
+    }
+    .information{
+        width: 1000px;
+        height: 1000px;
+        position: absolute;
+        top: 50%;
+        left: -10%;
+        transform: translateY(-50%);
+    }
+    #circle{
+        width: 1000px;
+        height: 1000px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        transform: rotate(0deg);
+        transition: 1s;
+    }
+    .feature img{
+        width: 70px;
+    }
+    .feature{
+        position: absolute;
+        display: flex;
+        color: #fff;
+    }
+    .feature div{
+        margin-left: 20px;
+    }
+    .feature div p{
+        margin-top: 6px;
+    }
+    .one{
+        top: 450px;
+        right: 50px;
+        image color: #fff;
+    }
+    .two{
+        top: 150px;
+        left: 350px;
+        transform: rotate(-90deg);
+    }
+    .three{
+        bottom: 450px;
+        left: 50px;
+        transform: rotate(-180deg);
+    }
+    .four{
+        bottom: 150px;
+        right: 350px;
+        transform: rotate(-270deg);
+    }
+    .mobile{
+        width: 200px;
+        position: relative;
+        top: 50%;
+        left: 35%;
+        transform: translateY(-50%);
+        z-index: 1;
+    }
+    .Controls{
+        position: absolute;
+        right: 10%;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+    }
+    .Controls h3{
+        margin: 15px;
+        color: #fff;
+    }
+    #upBtn{
+        width: 15px;
+        cursor: pointer;
+    }
+    #downBtn{
+        width: 15px;
+        cursor: pointer;
+        transform: rotate(180deg);
+    }
+    .overlay{
+        width: 0;
+        height: 0;
+        border-top: 500px solid #110101;
+        border-right: 500px solid transparent;
+        border-bottom: 500px solid #110101;
+        border-left: 500px solid #110101;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <nav>
+            <div class="logo">
+                <img src="logo.jpg">
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Phone</a></li>
+                    <li><a href="#">Accessories</a></li>
+                    <li><a href="#">Cart</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="information">
+            <div class="overlay"></div>
+            <img src="mobile phone.jpg" class="mobile">
+            <div id="circle">
+                <div class="feature one">
+                    <img src="camera.png">
+                    <div>
+                        <h1>Camera</h1>
+                        <p>12MP, Wide angle lens</p>
+                    </div>
+                </div>
+                <div class="feature two">
+                    <img src="processor.png" alt="">
+                    <div>
+                        <h1>Processor</h1>
+                        <p>Snapdragon Octa-core 11nm</p>
+                    </div>
+                </div>
+                <div class="feature three">
+                    <img src="Display.jpg" alt="">
+                    <div>
+                        <h1>Display</h1>
+                        <p>6.5" Mini-Drop Fullscreen</p>
+                    </div>
+                </div>
+                <div class="feature four">
+                    <img src="Battery.png" alt="">
+                    <div>
+                        <h1>Battery</h1>
+                        <p>5000mAh, 720Hrs Standby</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="Controls">
+            <img src="upper arrow.jpg" id="upBtn">
+            <h3>Features</h3>
+            <img src="upper arrow.jpg" id="downBtn">
+        </div>
+
+    </div>
+    <script>
+        var circle = document.getElementById("circle");
+        var upBtn = document.getElementById("upBtn");
+        var downBtn = document.getElementById("downBtn");
+
+        var rotateValue = circle.style.transform;
+        var rotateSum;
+
+        upBtn.onclick=function()
+        {
+            rotateSum = rotateValue + "rotate(-90deg)";
+            circle.style.transform = rotateSum;
+            rotateValue = rotateSum;
+        }
+        downBtn.onclick=function()
+        {
+            rotateSum = rotateValue + "rotate(90deg)";
+            circle.style.transform = rotateSum;
+            rotateValue = rotateSum;
+        }
+    </script>
+</body>
+</html>
